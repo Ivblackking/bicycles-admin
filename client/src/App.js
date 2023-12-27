@@ -8,7 +8,7 @@ function App() {
   useEffect(() => {
     const callBackendAPI = async () => {
       try {
-        const response = await fetch("/api");
+        const response = await fetch("/api/v1/bicycles");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
