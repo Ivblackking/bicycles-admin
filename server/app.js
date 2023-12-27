@@ -42,9 +42,9 @@ app.get(`${base_url}/:id`, async (req, res) => {
     }
 });
 
-app.post(`${base_url}/:id`, async (req, res)=>{
+app.post(`${base_url}/:visibleId`, async (req, res)=>{
     const bicycle = new Bicycle({
-        id: req.params.id,
+        visibleId: req.params.visibleId,
         name: req.body.name,
         type: req.body.type,
         color: req.body.color,

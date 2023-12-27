@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const dataSchema = new mongoose.Schema({
-    id: {
+    visibleId: {
         required: true,
-        type: Number,
+        type: String,
         unique : true
     },
     name: {
@@ -32,4 +32,4 @@ const dataSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('Bicylce', dataSchema)
+module.exports = mongoose.model('Bicylce2', dataSchema)
