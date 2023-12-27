@@ -63,6 +63,15 @@ app.post(`${base_url}/:id`, async (req, res)=>{
 
 app.patch(`${base_url}/:id`, (req, res)=>{});
 
-app.delete(`${base_url}/:id`, (req, res)=>{});
+app.delete(`${base_url}/:id`, async (req, res)=>{
+    try {
+        const id = req.params.id;
+        const data = await Bicycle.findByIdAndDelete(id);
+        res.send(`The bicycle ${data.name} has been deleted`);
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
