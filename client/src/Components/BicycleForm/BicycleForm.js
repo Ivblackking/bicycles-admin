@@ -1,6 +1,7 @@
 import React from 'react';
 import "./BicycleForm.css";
 import {useState} from 'react';
+import axios from "axios";
 
 function BicycleForm() {
     const [name, setName] = useState("");
@@ -11,8 +12,33 @@ function BicycleForm() {
     const [visibleId, setVisibleId] = useState("");
     const [description, setDescription] = useState("");
 
+    const addNewBicycle = async () => {
+        const newBicycle = {
+            name,
+            type,
+            color,
+            wheel_size: wheelSize,
+            price,
+            description
+        }
+
+        try {
+            const res = await axios.post(`api/v1/bicycles/${visibleId}`, newBicycle);
+            console.log(res.data);
+        }catch(error){
+            console.log(error);
+        }
+    }
+
+    const clearForm = () => {
+        const inputs = document.querySelectorAll('.inputs-text input');
+        const textarea = document.querySelector('.description');
+        inputs.forEach(input=>input.value = "");
+        textarea.value = "";
+    }
+
     return (
-        <form>
+        <div>
             <div className='inputs-text'>
                 <input onChange={e=>setName(e.target.value)} type="text" placeholder='Name'/>
                 <input onChange={e=>setType(e.target.value)} type="text" placeholder='Type'/>
@@ -23,10 +49,10 @@ function BicycleForm() {
             </div>
             <textarea onChange={e=>setDescription(e.target.value)} placeholder="Description" className='description'/>
             <div className='buttons'>
-                <button>SAVE</button>
-                <button>CLEAR</button>
+                <button onClick={() => addNewBicycle()}>SAVE</button>
+                <button onClick={clearForm}>CLEAR</button>
             </div>
-        </form>
+        </div>
   )
 }
 
