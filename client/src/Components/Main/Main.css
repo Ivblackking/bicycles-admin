@@ -1,0 +1,7 @@
+.container-fluid {
+    overflow-y: auto;
+}
+.mycol {
+    padding: 7px 10px;
+    height: calc(100vh - 68px);
+}
