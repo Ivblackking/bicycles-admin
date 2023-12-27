@@ -61,7 +61,22 @@ app.post(`${base_url}/:visibleId`, async (req, res)=>{
     }
 });
 
-app.patch(`${base_url}/:id`, (req, res)=>{});
+app.patch(`${base_url}/:id`, async (req, res)=>{
+    try {
+        const id = req.params.id;
+        const updatedData = req.body;
+        const options = { new: true };
+
+        const result = await Bicycle.findByIdAndUpdate(
+            id, updatedData, options
+        );
+
+        res.send(result)
+    }
+    catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+});
 
 app.delete(`${base_url}/:id`, async (req, res)=>{
     try {
