@@ -22,8 +22,14 @@ const base_url = "/api/v1/bicycles";
 
 app.use(express.json());
 
-app.get(base_url, (req, res) => {
-    res.send({ message: "Hello from Express!" });
+app.get(base_url, async (req, res) => {
+    try{
+        const data = await Bicycle.find();
+        res.json(data);
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
 });
 
 app.get(`${base_url}/:id`, (req, res) => {
