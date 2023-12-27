@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require('mongoose');
 require('dotenv').config();
+const Bicycle = require('./models/model');
 
 const app = express();
 const port = process.env.PORT || 3500;
@@ -19,6 +20,8 @@ database.once('connected', () => {
 
 const base_url = "/api/v1/bicycles";
 
+app.use(express.json());
+
 app.get(base_url, (req, res) => {
     res.send({ message: "Hello from Express!" });
 });
@@ -27,7 +30,24 @@ app.get(`${base_url}/:id`, (req, res) => {
     res.send({ message: "Hello from Express!" });
 });
 
-app.post(`${base_url}/:id`, (req, res)=>{});
+app.post(`${base_url}/:id`, async (req, res)=>{
+    const bicycle = new Bicycle({
+        id: req.params.id,
+        name: req.body.name,
+        type: req.body.type,
+        color: req.body.color,
+        wheel_size: req.body.wheel_size,
+        price: req.body.price,
+        description: req.body.description,
+    });
+
+    try{
+        const bicycleToSave = await bicycle.save();
+        res.status(200).json(bicycleToSave);
+    }catch(error){
+        res.status(400).json({message: error.message});
+    }
+});
 
 app.patch(`${base_url}/:id`, (req, res)=>{});
 
