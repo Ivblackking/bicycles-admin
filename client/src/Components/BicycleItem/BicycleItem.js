@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
 import "./BicycleItem.css";
+import axios from "axios";
 
 function BicycleItem({bicycle}) {
     const [status, setStatus] = useState("Available");
     const {visibleId, name, type, color, price} = bicycle;
+
+    const removeBicycle = async () => {
+        try{
+            const res = await axios.delete(`api/v1/bicycles/${bicycle._id}`);
+            console.log(res.data);
+        }catch(error){
+            console.log(error);
+        }
+    }
 
     return (
         <li>
@@ -13,7 +23,7 @@ function BicycleItem({bicycle}) {
                 <p>STATUS: {status}</p>
             </div>
             <div id="right-div">
-                <button>&#10006;</button>
+                <button onClick={() => removeBicycle()}>&#10006;</button>
                 <br></br>
                 <br></br>
                 <p>{price} UAH/hr.</p>

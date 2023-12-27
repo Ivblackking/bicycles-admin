@@ -17,7 +17,7 @@ function BicyclesList() {
         }
       };
       getDataFromAPI();
-    }, []);
+    }, [bicycles]);
 
     return (
         <ul className='ps-0'>
