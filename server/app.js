@@ -32,8 +32,14 @@ app.get(base_url, async (req, res) => {
     }
 });
 
-app.get(`${base_url}/:id`, (req, res) => {
-    res.send({ message: "Hello from Express!" });
+app.get(`${base_url}/:id`, async (req, res) => {
+    try{
+        const data = await Bicycle.findById(req.params.id);
+        res.json(data);
+    }
+    catch(error){
+        res.status(500).json({message: error.message})
+    }
 });
 
 app.post(`${base_url}/:id`, async (req, res)=>{
