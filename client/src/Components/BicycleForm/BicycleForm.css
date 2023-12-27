@@ -1,0 +1,17 @@
+.inputs-text {
+    display: grid;
+    grid-template-columns: repeat(2, 3fr);
+    gap: 10px;
+}
+
+.description{
+    width: 100%;
+    margin: 10px 0;
+    height: 75px; 
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
