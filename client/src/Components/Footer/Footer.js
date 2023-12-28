@@ -1,16 +1,20 @@
 import React from 'react'
+import "./Footer.css"
 
 function Footer() {
     const style={
-        color: "white",
+        color: "#CBCACA",
         backgroundColor: "#696969",
         padding: "4px 16px",
         textAlign: "end",
-        height: "34px"
+        height: "40px",
+        fontSize: "20px",
+        fontFamily: "Saira" 
     }
+
   return (
     <div style={style}>
-        <span>Developer:</span> Ivan Lysenko
+        Developer: <span style={{color: "white"}}>Ivan Lysenko</span>
     </div>
   )
 }

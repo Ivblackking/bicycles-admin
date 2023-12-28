@@ -29,7 +29,7 @@ function BicycleItem({bicycle}) {
             <div id="left-div">
                 <h5>{name} - {type}{` (${color})`}</h5>
                 <span>ID: {visibleId}</span>
-                <p>STATUS: 
+                <p>STATUS:&emsp;
                     <select defaultValue={status} onChange={(e) => changeStatus(e.target.value)}>
                         {statuses.map((status, i) => <option key={i} value={status}>{status}</option>)}
                     </select>
