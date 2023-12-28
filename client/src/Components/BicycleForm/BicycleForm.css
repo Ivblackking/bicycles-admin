@@ -4,14 +4,35 @@
     gap: 10px;
 }
 
-.description{
+.inputs-text > input,
+.description {
+    padding: 5px 16px;
+    border-radius: 5px;
+    background: #E8E8E8;
     width: 100%;
+    border: none;
+}
+
+.description{
     margin: 10px 0;
-    height: 75px; 
+    height: 75px;
 }
 
 .buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid 1px #C4C4C4;
+}
+
+.buttons button {
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    border-radius: 5px;
+    background: #696969;
+    border: solid 2px #696969;
 }
