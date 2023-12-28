@@ -63,7 +63,7 @@ function BicycleItem({bicycle}) {
             </div>
             <div id="right-div">
                 <button onClick={() => removeBicycle()}>&#10006;</button>
-                <p className='price'>{price} UAH/hr.</p>
+                <p className='price'>{price.toFixed(2)} UAH/hr.</p>
             </div>
         </li>
     );
