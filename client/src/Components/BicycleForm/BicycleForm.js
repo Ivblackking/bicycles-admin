@@ -48,8 +48,11 @@ function BicycleForm() {
     const clearForm = () => {
         const inputs = document.querySelectorAll('.inputs-text input');
         const textarea = document.querySelector('.description');
+
         inputs.forEach(input=>input.value = "");
         textarea.value = "";
+        
+        setErrors({});
     }
 
     const errorStyle = {
