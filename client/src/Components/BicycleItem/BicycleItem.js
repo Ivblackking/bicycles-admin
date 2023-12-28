@@ -17,7 +17,6 @@ function BicycleItem({bicycle}) {
 
     const changeStatus = async (newStatus) => {
         try{
-            console.log(newStatus);
             const res = await axios.patch(`api/v1/bicycles/${bicycle._id}`, {status: newStatus});
             console.log(res.data);
         }catch(error){
