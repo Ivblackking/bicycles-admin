@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import "./Statistics.css";
 
 function Statistics({bicycles}) {
   const totalBikes = bicycles.length;
@@ -6,14 +7,16 @@ function Statistics({bicycles}) {
   const bookedBikes = bicycles.filter(el=>el.status === "Busy").length;
   const averagBikeCost = bicycles.map(el=>el.price).reduce((a,b)=>a+b, 0) / totalBikes;
 
+  const spanStyle = {fontWeight: 700}
+
   return (
-    <div>
+    <div className='statistics'>
       <h5>Statistics</h5>
       <p>
-        Total Bikes: <span>{totalBikes}</span><br></br>
-        Available Bikes : <span>{availableBikes}</span><br></br>
-        Booked Bikes: <span>{bookedBikes}</span><br></br>
-        Average bike cost: <span>{averagBikeCost.toFixed(2)}</span> UAH/hr.
+        Total Bikes: <span style={spanStyle}>{totalBikes}</span><br></br>
+        Available Bikes : <span style={spanStyle}>{availableBikes}</span><br></br>
+        Booked Bikes: <span style={spanStyle}>{bookedBikes}</span><br></br>
+        Average bike cost: <span style={spanStyle}>{averagBikeCost.toFixed(2)}</span> UAH/hr.
       </p>
     </div>
   )
