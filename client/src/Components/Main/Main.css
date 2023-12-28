@@ -8,3 +8,7 @@
     padding: 7px 10px;
     height: calc(100vh - 82px);
 }
+
+.mycol.leftcol {
+    border-right: solid 1px #C4C4C4; 
+}

@@ -26,7 +26,7 @@ function Main() {
   return (
     <div className='container-fluid'>
         <div className='row'>
-            <div className='mycol col-7'>
+            <div className='mycol leftcol col-7'>
                 <BicyclesList bicycles={bicycles}/>
             </div>
             <div className='mycol col-5'>
