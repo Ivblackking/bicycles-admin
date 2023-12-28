@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./BicycleItem.css";
 import axios from "axios";
 
 function BicycleItem({bicycle}) {
-    const [status, setStatus] = useState("Available");
-    const {visibleId, name, type, color, price} = bicycle;
+    const {visibleId, name, type, color, price, status} = bicycle;
+    const statuses = ["Available", "Busy", "Unavailable"];
 
     const removeBicycle = async () => {
         try{
@@ -15,12 +15,26 @@ function BicycleItem({bicycle}) {
         }
     }
 
+    const changeStatus = async (newStatus) => {
+        try{
+            console.log(newStatus);
+            const res = await axios.patch(`api/v1/bicycles/${bicycle._id}`, {status: newStatus});
+            console.log(res.data);
+        }catch(error){
+            console.log(error);
+        }
+    } 
+
     return (
         <li>
             <div id="left-div">
                 <h5>{name} - {type}{` (${color})`}</h5>
                 <span>ID: {visibleId}</span>
-                <p>STATUS: {status}</p>
+                <p>STATUS: 
+                    <select defaultValue={status} onChange={(e) => changeStatus(e.target.value)}>
+                        {statuses.map((status, i) => <option key={i} value={status}>{status}</option>)}
+                    </select>
+                </p>
             </div>
             <div id="right-div">
                 <button onClick={() => removeBicycle()}>&#10006;</button>
