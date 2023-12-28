@@ -31,7 +31,8 @@ function BicycleForm() {
         }catch(error){
             console.log(error);
             const uniqueIdError = `E11000 duplicate key error collection: test.bicylce2 index: visibleId_1 dup key: { visibleId: "${visibleId}" }`;
-            if (error.response.data.message === uniqueIdError){
+            
+            if (error.response.data.message === uniqueIdError || visibleId !== ""){
                 setErrors({visibleId: "This ID already exists"});
             }
         }
