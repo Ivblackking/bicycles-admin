@@ -11,7 +11,7 @@ function Statistics({bicycles}) {
 
   return (
     <div className='statistics'>
-      <h5>Statistics</h5>
+      <h5>STATISTICS</h5>
       <p>
         Total Bikes: <span style={spanStyle}>{totalBikes}</span><br></br>
         Available Bikes : <span style={spanStyle}>{availableBikes}</span><br></br>
