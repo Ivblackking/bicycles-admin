@@ -30,6 +30,11 @@ function BicycleForm() {
         }
     }
 
+    const submitForm = (e) => {
+        addNewBicycle();
+        e.preventDefault();
+    }
+
     const clearForm = () => {
         const inputs = document.querySelectorAll('.inputs-text input');
         const textarea = document.querySelector('.description');
@@ -38,7 +43,7 @@ function BicycleForm() {
     }
 
     return (
-        <div>
+        <form onSubmit={submitForm}>
             <div className='inputs-text'>
                 <input onChange={e=>setName(e.target.value)} type="text" placeholder='Name'/>
                 <input onChange={e=>setType(e.target.value)} type="text" placeholder='Type'/>
@@ -49,10 +54,10 @@ function BicycleForm() {
             </div>
             <textarea onChange={e=>setDescription(e.target.value)} placeholder="Description" className='description'/>
             <div className='buttons'>
-                <button onClick={() => addNewBicycle()}>SAVE</button>
-                <button onClick={clearForm}>CLEAR</button>
+                <button type="submit">SAVE</button>
+                <button type="reset" onClick={clearForm}>CLEAR</button>
             </div>
-        </div>
+        </form>
   )
 }
 
