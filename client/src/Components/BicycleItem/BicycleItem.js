@@ -6,6 +6,28 @@ function BicycleItem({bicycle}) {
     const {visibleId, name, type, color, price, status} = bicycle;
     const statuses = ["Available", "Busy", "Unavailable"];
 
+    let style;
+    switch(status){
+        case "Available": {
+            style = { borderColor: "#6FCF97"};
+            break;
+        }
+        case "Busy": {
+            style = { borderColor: "#F2994A"};
+            break;
+        }
+        case "Unavailable": {
+            style = { 
+                borderColor: "#EB5757",
+                opacity: 0.5
+            };
+            break;
+        }
+        default: {
+            style = { borderColor: "#6FCF97"};
+        }
+    }
+
     const removeBicycle = async () => {
         try{
             const res = await axios.delete(`api/v1/bicycles/${bicycle._id}`);
@@ -25,9 +47,13 @@ function BicycleItem({bicycle}) {
     } 
 
     return (
-        <li>
+        <li style={style}>
             <div id="left-div">
-                <h5>{name} - {type}{` (${color})`}</h5>
+                <h5>
+                    <span style={{fontWeight: "bold"}}>
+                        {name.toUpperCase()}
+                    </span> - {type.toUpperCase()}{` (${color.toUpperCase()})`}
+                </h5>
                 <span>ID: {visibleId}</span>
                 <p>STATUS:&emsp;
                     <select defaultValue={status} onChange={(e) => changeStatus(e.target.value)}>
@@ -37,9 +63,7 @@ function BicycleItem({bicycle}) {
             </div>
             <div id="right-div">
                 <button onClick={() => removeBicycle()}>&#10006;</button>
-                <br></br>
-                <br></br>
-                <p>{price} UAH/hr.</p>
+                <p className='price'>{price} UAH/hr.</p>
             </div>
         </li>
     );

@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@400;700&display=swap');
+
 .container-fluid {
     overflow-y: auto;
+    font-family: "Saira";
 }
 .mycol {
     padding: 7px 10px;

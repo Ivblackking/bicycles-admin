@@ -8,9 +8,14 @@ li {
     justify-content: space-between;
     align-items: start;
     border: solid 2px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin-bottom: 12px;
-    padding: 10px 7px 10px 20px;
+    padding: 0 7px 5px 20px;
+    background: #E8E8E8;
+}
+
+#left-div{
+    padding-top: 5px;
 }
 
 #right-div {
@@ -20,4 +25,51 @@ li {
 #left-div > *,
 #right-div > *{
     margin: 0;
+    font-style: normal;
+    line-height: normal;
+}
+
+#left-div > h5 {
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#left-div > h5 > span{
+    font-weight: 700;
+}
+
+#left-div > span {
+    display:flex;
+    color: #717171;
+    font-size: 8px;
+    font-weight: 400;
+}
+
+#left-div > p {
+    color: #333;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#left-div > p > select {
+    background: none;
+    border: none;
+}
+
+#right-div > button {
+    background: none;
+    padding: 0;
+    border: none;
+}
+
+#right-div > button:hover{
+    color: #EB5757;
+}
+
+#right-div > .price{
+    color: #000;
+    font-size: 24px;
+    line-height: 1.1;
+    margin-top: 10px;
 }
