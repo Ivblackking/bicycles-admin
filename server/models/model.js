@@ -30,6 +30,11 @@ const dataSchema = new mongoose.Schema({
         required: true,
         type: String
     },
+    status: {
+        required: true,
+        type: String,
+        default: 'Available'
+    }
 });
 
 module.exports = mongoose.model('Bicylce2', dataSchema)
